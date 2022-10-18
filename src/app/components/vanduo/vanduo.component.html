@@ -1,0 +1,52 @@
+<div class="row mt-5 d-flex flex-column">
+  <div class="col-md-6 m-auto">
+    <div class="card text-center">
+      <div class="card-header bg-dark bg-opacity-25 fw-bold">Vandens rezervuaro skaiciuokle</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label>Rezervuaro talpa (l):</label>
+          <input type="number" class="form-control" [(ngModel)]="talpa">
+        </div>
+        <div class="mb-3">
+          <label>Rezervuaro prisipildymo greitis (l/val):</label>
+          <input type="number" class="form-control" [(ngModel)]="greitis">
+        </div>
+        <div class="mb-3">
+          <label>Rezervuaro prisipildymo laikas (val):</label>
+          <input type="number" class="form-control" [(ngModel)]="laikas">
+        </div>
+        <button class="btn btn-info" [disabled]="talpa==null || greitis==null || laikas==null"
+                (click)="skaiciuoti()">Skaiciuoti</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="rezultatas!=0" class="col-md-6 mt-5 m-auto">
+    <div class="card text-center">
+      <div class="card-header text-primary fw-bold bg-black bg-opacity-10"
+           [hidden]="talpa==null || greitis==null || laikas==null">Rezultatas
+        </div>
+      <div class="card-body ">
+        <div *ngIf="rezultatas!=null" class="fw-bold">Rezervuaro uzpildymas: {{ rezultatas }} %
+          ({{rezultatas2}} l)
+          <div *ngIf="rezultatas>=80 && rezultatas<100" class="alert alert-warning mt-3" role="alert">
+            REZERVUARAS PRIPILDYTAS KRITISKAI !!!
+          </div>
+          <div *ngIf="rezultatas>=100" class="alert alert-danger mt-3" role="alert">
+            REZERVUARAS PILNAS !!!
+          </div>
+        </div>
+        <div *ngIf="rezultatas==null" class="text-primary fw-bold">Suveskite duomenis !?!</div>
+      </div>
+    </div>
+    <div *ngIf="rezultatas!=null" class="mt-3 text-center">
+      <a href="" class="btn btn-outline-info text-dark">Skaiciuoti is naujo</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+<div class="row mt-5 d-flex flex-column">
+  <div class="col-md-6 m-auto">
+    <div class="card text-center">
+      <div class="card-header">KMI Skaiciuokle</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="">Jusu svoris:</label>
+          <input type="number" class="form-control" [(ngModel)]="svoris">
+        </div>
+        <div class="mb-3">
+        <label>Jusu ugis:</label>
+        <input type="number" class="form-control" [(ngModel)]="ugis">
+      </div>
+        <button class="btn btn-info" [disabled]="ugis==null || svoris==null" (click)="skaiciuoti()">Skaiciuoti</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 mt-5 m-auto">
+    <div class="card text-center">
+      <div class="card-header" [hidden]="ugis==null || svoris==null">KMI Rezultatas</div>
+      <div class="card-body ">
+        <div *ngIf="kmi!=null">{{ kmi }}</div>
+        <div *ngIf="kmi==null">Suveskite savo duomenis</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
