@@ -1,0 +1,18 @@
+<div class="card text-center">
+  <div class="card-header bg-dark bg-opacity-25 fw-bold">Prideti nauja uzduoti</div>
+  <div class="card-body">
+    <div class="mb-3">
+      <label>Uzduoties pavadinimas:</label>
+      <input type="text" class="form-control" [(ngModel)]="taskName">
+    </div>
+    <div class="mb-3">
+      <label>Pasirinkti uzduoties atlikimo tipa:</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="taskType">
+        <option value="Ne skubu">Ne skubiai</option>
+        <option value="Skubu">Skubiai</option>
+        <option value="labai skubu">Labai skubiai</option>
+      </select>
+    </div>
+    <button class="btn btn-info" (click)="addTask()" [disabled]="taskName==null || taskType==null">Prideti</button>
+  </div>
+</div>
