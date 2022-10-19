@@ -1,0 +1,23 @@
+<div class="card text-center">
+  <div class="card-header bg-dark bg-opacity-25 fw-bold">Uzduociu sarasas</div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item text-uppercase fw-bolder">
+        <div class="row">
+          <div class="col-5 text-center">Uzduoties pavadinimas</div>
+          <div class="col-4 text-center">Uzduoties atlikimo tipas</div>
+        </div>
+      </li>
+      <li *ngFor="let task of tasks; let i=index" class="list-group-item">
+        <div class="row">
+          <div class="col-5 text-center">{{ i + 1 }}. {{ task.taskName }}</div>
+          <div class="col-4 text-center">{{ task.taskType }}</div>
+
+          <div class="col-3 float-end pe-0 ">
+            <button class="btn btn-sm btn-info me-3 ">Redaguoti</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(i)">Ištrinti</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
